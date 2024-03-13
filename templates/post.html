@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ event['title'] }} {% endblock %}
+
+{% block content %}
+    <h1>{{ event['title'] }}</h1>
+    <p>{{ event['content'] }}</p>
+    <span class="badge badge-primary">{{ event['created'] }}</span>
+{% endblock %}
+```

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    {% for event in events %}
+        <a href="{{ event['id'] }}">
+            <h2>{{ event['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ event['created'] }}</span>
+        <a href="{{ url_for('edit', id=event['id']) }}">
+            <span class="badge badge-warning">Redigera</span>
+        </a>
+        <form action="{{ url_for('delete', id=event['id']) }}" method="POST">
+            <input type="submit" value="Ta bort event"
+                    class="btn btn-danger btn-sm"
+                    onclick="return confirm('Är du säker på att du vill ta bort eventet?')">
+        </form>
+    {% endfor %}
+{% endblock %}
